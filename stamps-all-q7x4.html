@@ -56,19 +56,7 @@
 <header>喋る動画スタンプ（全部入り）</header>
 <div class="pick">
   <label>誰のスタンプにしますか</label>
-  <select id="who">
-      <option value="0">タックマン（現場用）</option>
-      <option value="1">レイナ（昼）</option>
-      <option value="2">レイナ（夜）</option>
-      <option value="3">イケ兄</option>
-      <option value="4">イケおじ</option>
-      <option value="5">ナツキ</option>
-      <option value="6">モモカ</option>
-      <option value="7">ひより</option>
-      <option value="8">チワワ（制服）</option>
-      <option value="9">チワワ（犬の言葉）</option>
-      <option value="10">有香（椛）</option>
-  </select>
+  <select id="who"></select>
 </div>
 <div class="grid" id="grid"></div>
 <div class="overlay" id="overlay">
@@ -126,6 +114,13 @@
         location.href = url;
       }
     }).catch(function() { location.href = url; });
+  });
+  var whoSel = document.getElementById('who');
+  SETS.forEach(function(s, i) {
+    var o = document.createElement('option');
+    o.value = i;
+    o.textContent = s[0];
+    whoSel.appendChild(o);
   });
   render(0);
 </script>
